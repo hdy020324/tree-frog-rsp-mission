@@ -30,7 +30,7 @@ class RockScissorPaper {
 
             gr.game(userR, comR);
 
-            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            System.out.println("\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             restart = Integer.parseInt(sc.nextLine());
         }
 
@@ -41,7 +41,29 @@ class RockScissorPaper {
 class GameResult {
 
     void game(String userR, String comR) {
-        System.err.printf("userR : %s / comR : %s", userR, comR);
+
+        System.err.printf("상대는 [%s]를 냈습니다 :",comR);
+
+        String result = "";
+
+        if (userR.equals(comR)){ //비겼을 때
+            result = "개굴";
+        } else if (userR.equals("보") == false && comR.equals("보") == false) { //둘다 "보"가 아니라면
+            if(comR.equals("바위")){ //comR=바위, userR=가위
+                result = "졌다";
+            } else { //comR=가위 , userR=바위
+                result = "이겼다";
+            }
+        } else {//보 가위 / 보 주먹-----------------------------------------------------
+            if(comR.equals("가위")){ //user=보
+                result = "졌다";
+            } else if (comR.equals("보")) { //user=가위
+                result = "이겼다";		
+            } 
+        }
+
+        System.out.printf("\nresult : %s", result);
+
     }  
 }
   
