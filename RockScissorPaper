@@ -4,6 +4,7 @@ import java.util.Random;
 class RockScissorPaper {
 
     public static void main(String[] args) {
+        GameResult gr = new GameResult();
         Scanner sc = new Scanner(System.in);
         Random rd = new Random();
 
@@ -27,9 +28,8 @@ class RockScissorPaper {
                 comR = "보";
             }
 
+            gr.game(userR, comR);
 
-            System.out.printf("userR : %s / comR : %s\n",userR,comR);
-          
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             restart = Integer.parseInt(sc.nextLine());
         }
@@ -37,3 +37,11 @@ class RockScissorPaper {
     }
     
 }
+
+class GameResult {
+
+    void game(String userR, String comR) {
+        System.err.printf("userR : %s / comR : %s", userR, comR);
+    }  
+}
+  
