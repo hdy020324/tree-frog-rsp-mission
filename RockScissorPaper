@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class RockScissorPaper {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random rd = new Random();
+
+        int restart = 1;
+
+        System.out.println("청개구리 가위, 바위, 보를 시작합니다.");
+
+        while (restart == 1) {
+            System.out.print("가위, 바위, 보를 입력해주세요 : ");
+        
+            String userR = sc.nextLine();
+            int com = (rd.nextInt(3) + 1); //1~3중 r하나 선택
+    
+            String comR ="";
+    
+            if(com == 1){
+                comR = "가위";
+            } else if (com == 2) {
+                comR = "바위";
+            } else if (com == 3) {
+                comR = "보";
+            }
+
+
+            System.out.printf("userR : %s / comR : %s\n",userR,comR);
+          
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            restart = Integer.parseInt(sc.nextLine());
+        }
+
+    }
+    
+}
